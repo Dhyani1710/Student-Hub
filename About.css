@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --smart-blue: #0466c8;
+    --sapphire: #0353a4;
+    --regal-navy: #023e7d;
+    --prussian-blue: #002855;
+    --prussian-blue-2: #001845;
+    --prussian-blue-3: #001233;
+    --twilight-indigo: #33415c;
+    --blue-slate: #5c677d;
+    --slate-grey: #7d8597;
+    --lavender-grey: #979dac;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #eef4fb;
+}
+
+/* Container */
+
+.container {
+    width: 100%;
+    margin: 0;
+    background: #fff;
+}
+
+/* Header */
+
+header {
+    background: linear-gradient(to right, var(--prussian-blue), var(--smart-blue));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+/* Logo */
+
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* Navigation */
+
+
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 18px;
+    transition: .3s;
+}
+
+nav ul li:not(:last-child)::after {
+    content: "|";
+    color: #fff;
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav ul li a:hover {
+    background: var(--smart-blue);
+    border-radius: 5px;
+}
+
+/* About Section */
+
+.about {
+    width: 90%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.about h2 {
+    color: var(--prussian-blue);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.about h3 {
+    color: var(--smart-blue);
+    margin: 20px 0 10px;
+}
+
+.about p {
+    color: #444;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.about ul {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.about ul li {
+    margin: 10px 0;
+    color: #444;
+}
+
+/* Footer */
+
+footer {
+    background: var(--prussian-blue);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li::after {
+        display: none;
+    }
+
+    .about {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .about h2 {
+        font-size: 26px;
+    }
+
+}
