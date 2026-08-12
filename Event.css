@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --smart-blue: #0466c8;
+    --sapphire: #0353a4;
+    --regal-navy: #023e7d;
+    --prussian-blue: #002855;
+    --prussian-blue-2: #001845;
+    --prussian-blue-3: #001233;
+    --twilight-indigo: #33415c;
+    --blue-slate: #5c677d;
+    --slate-grey: #7d8597;
+    --lavender-grey: #979dac;
+    --white: #ffffff;
+    --light-bg: #f4f7fb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #dbeafe, #f8fafc);
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 245px;
+    background: linear-gradient(
+        180deg,
+        var(--prussian-blue-3),
+        var(--prussian-blue)
+    );
+    padding: 25px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+/* Sidebar Buttons */
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 1px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: var(--smart-blue);
+    padding-left: 18px;
+    box-shadow: 0 4px 10px rgba(4, 102, 200, 0.25);
+}
+
+/* Logout */
+
+.Logout {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.Logout a {
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.Logout a:hover {
+    color: rgba(0, 0, 0, 0.119);
+    background: #fcfdfe;
+    transform: translateY(-2px);
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 25px 35px 35px;
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    min-height: 70px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+/* Blue Line */
+
+.line {
+    width: 6px;
+    height: 45px;
+    background: var(--smart-blue);
+    border-radius: 10px;
+}
+
+
+.Profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Profile h2 {
+    color: #111827;
+    font-size: 22px;
+}
+
+.Profile h3 {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ===== TITLE ===== */
+.Event {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+}
+
+/* ===== EVENT GRID ===== */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.event-card h3 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.event-card p {
+    color: #475569;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.event-card button {
+    margin-top: 12px;
+    background: linear-gradient(90deg, #12388a, #00217a);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.event-card button:hover {
+    background: linear-gradient(90deg, #1d4ed8, #1e40af);
+    transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .Profile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

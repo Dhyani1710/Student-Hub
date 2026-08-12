@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --smart-blue: #0466c8;
+    --sapphire: #0353a4;
+    --regal-navy: #023e7d;
+    --prussian-blue: #002855;
+    --prussian-blue-2: #001845;
+    --prussian-blue-3: #001233;
+    --twilight-indigo: #33415c;
+    --blue-slate: #5c677d;
+    --slate-grey: #7d8597;
+    --lavender-grey: #979dac;
+    --white: #ffffff;
+    --light-bg: #f4f7fb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+.container{
+    display:flex;
+}
+
+.sidebar {
+    width: 245px;
+    background: linear-gradient(
+        180deg,
+        var(--prussian-blue-3),
+        var(--prussian-blue)
+    );
+    padding: 25px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+/* Sidebar Buttons */
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 1px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: var(--smart-blue);
+    padding-left: 18px;
+    box-shadow: 0 4px 10px rgba(4, 102, 200, 0.25);
+}
+
+/* Logout */
+
+.Logout {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.Logout a {
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.Logout a:hover {
+    color: rgba(0, 0, 0, 0.119);
+    background: #fcfdfe;
+    transform: translateY(-2px);
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 25px 35px 35px;
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    min-height: 70px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+/* Blue Line */
+
+.line {
+    width: 6px;
+    height: 45px;
+    background: var(--smart-blue);
+    border-radius: 10px;
+}
+.Profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.Profile h2{
+    font-size:22px;
+    color:#333;
+}
+
+.Profile h3{
+    font-size:14px;
+    color:#666;
+}
+
+.Rules{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#0d47a1;
+    margin-bottom:25px;
+}
+
+.rules-box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.rules-box ol{
+    padding-left:25px;
+}
+
+.rules-box li{
+    font-size:18px;
+    line-height:1.8;
+    color:#333;
+    margin-bottom:10px;
+}

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --smart-blue: #0466c8;
+    --regal-navy: #023e7d;
+    --prussian-blue: #002855;
+    --prussian-blue-3: #001233;
+    --blue-slate: #5c677d;
+    --white: #ffffff;
+    --light-bg: #eef2f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--light-bg);
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 245px;
+    background: linear-gradient(
+        180deg,
+        var(--prussian-blue-3),
+        var(--prussian-blue)
+    );
+    padding: 25px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+/* Sidebar Buttons */
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 1px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: var(--smart-blue);
+    padding-left: 18px;
+    box-shadow: 0 4px 10px rgba(4, 102, 200, 0.25);
+}
+
+/* Logout */
+
+.Logout {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.Logout a {
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.Logout a:hover {
+    color: rgba(0, 0, 0, 0.119);
+    background: #fcfdfe;
+    transform: translateY(-2px);
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 25px 35px 35px;
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    min-height: 70px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+/* Blue Line */
+
+.line {
+    width: 6px;
+    height: 45px;
+    background: var(--smart-blue);
+    border-radius: 10px;
+}
+
+.Profile {
+    margin-left: auto;
+}
+
+.Profile h2 {
+    color: var(--prussian-blue);
+    font-size: 22px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.Profile h3 {
+    color: var(--blue-slate);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    margin-top: 3px;
+}
+
+/* Page Title */
+.Hallticket {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--prussian-blue);
+    margin-bottom: 25px;
+}
+
+/* ================= LOGIN CARD ================= */
+.Login {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--smart-blue);
+}
+
+.Login h2 {
+    text-align: center;
+    color: var(--prussian-blue);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.Login h3 {
+    font-size: 15px;
+    color: var(--prussian-blue);
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+
+.Login input,
+.Login select {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #d6deea;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--blue-slate);
+    background: #f9fbfe;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.Login input:focus,
+.Login select:focus {
+    border-color: var(--smart-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(4, 102, 200, 0.12);
+}
+
+/* Submit Button */
+.Login button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg,
+            var(--smart-blue),
+            var(--regal-navy));
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(4, 102, 200, 0.25);
+}
+
+.Login button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(4, 102, 200, 0.35);
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #5c677d;
+    border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 850px) {
+    .sidebar {
+        width: 210px;
+    }
+
+    .main {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+        padding: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .Hallticket {
+        font-size: 26px;
+    }
+
+    .Login {
+        padding: 22px;
+    }
+}
