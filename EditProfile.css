@@ -15,7 +15,6 @@
     --light-bg: #f4f7fb;
 }
 
-/* ================= GLOBAL ================= */
 
 * {
     margin: 0;
@@ -36,7 +35,6 @@ body {
 }
 
 
-/* ================= SIDEBAR ================= */
 
 .sidebar {
     width: 245px;
@@ -60,7 +58,6 @@ body {
 }
 
 
-/* ================= LOGO ================= */
 
 .logo {
     text-align: center;
@@ -81,7 +78,6 @@ body {
 }
 
 
-/* ================= SIDEBAR LINKS ================= */
 
 .sidebar a {
     text-decoration: none;
@@ -108,7 +104,7 @@ body {
 
     cursor: pointer;
 
-    transition: 0.3s ease;
+
 }
 
 .sidebar button:hover {
@@ -120,7 +116,6 @@ body {
 }
 
 
-/* ================= LOGOUT ================= */
 
 .Logout {
     margin-top: 5px;
@@ -156,7 +151,6 @@ body {
 }
 
 
-/* ================= MAIN CONTENT ================= */
 
 .main {
     margin-left: 245px;
@@ -167,7 +161,6 @@ body {
 }
 
 
-/* ================= HEADER ================= */
 
 .header {
     width: 100%;
@@ -192,7 +185,6 @@ body {
 }
 
 
-/* ================= BLUE LINE ================= */
 
 .line {
     width: 6px;
@@ -205,7 +197,6 @@ body {
 }
 
 
-/* ================= PROFILE HEADER ================= */
 
 .Profile {
     display: flex;
@@ -238,7 +229,6 @@ body {
 }
 
 
-/* ================= MAIN TITLE ================= */
 
 .main > h2 {
     font-size: 24px;
@@ -251,7 +241,6 @@ body {
 }
 
 
-/* ================= SECTION TITLES ================= */
 
 .ProfileTitle,
 .SectionTitle {
@@ -271,7 +260,6 @@ body {
 }
 
 
-/* ================= PROFILE CARD ================= */
 
 .profile-card {
     width: 100%;
@@ -302,7 +290,6 @@ body {
 }
 
 
-/* ================= PROFILE IMAGE ================= */
 
 .profile-image {
     width: 180px;
@@ -341,7 +328,6 @@ body {
 }
 
 
-/* ================= PROFILE DETAILS ================= */
 
 .profile-details {
     flex: 1;
@@ -354,7 +340,6 @@ body {
 }
 
 
-/* ================= DETAIL BOX ================= */
 
 .detail {
     background: #f8faff;
@@ -395,7 +380,6 @@ body {
 }
 
 
-/* ================= EDIT INPUTS ================= */
 
 .detail input,
 .detail select,
@@ -423,7 +407,6 @@ body {
 }
 
 
-/* ================= INPUT FOCUS ================= */
 
 .detail input:focus,
 .detail select:focus,
@@ -435,7 +418,6 @@ body {
 }
 
 
-/* ================= READ ONLY ================= */
 
 .detail input[readonly] {
 
@@ -449,7 +431,6 @@ body {
 }
 
 
-/* ================= TEXTAREA ================= */
 
 .detail textarea {
 
@@ -461,7 +442,6 @@ body {
 }
 
 
-/* ================= SELECT ================= */
 
 .detail select {
 
@@ -471,7 +451,7 @@ body {
 }
 
 
-/* ================= ACADEMIC CARD ================= */
+
 
 .academic-card {
     width: 100%;
@@ -494,7 +474,6 @@ body {
 }
 
 
-/* ================= ACADEMIC BOX ================= */
 
 .academic-box {
     padding: 18px;
@@ -535,7 +514,6 @@ body {
 }
 
 
-/* ================= ACADEMIC INPUT ================= */
 
 .academic-box input,
 .academic-box select {
@@ -568,7 +546,6 @@ body {
 }
 
 
-/* ================= PARENT CARD ================= */
 
 .parent-card {
     width: 100%;
@@ -591,7 +568,6 @@ body {
 }
 
 
-/* ================= ADDRESS CARD ================= */
 
 .address-card {
     width: 100%;
@@ -618,8 +594,6 @@ body {
 }
 
 
-/* ================= COLLEGE CARD ================= */
-
 .college-card {
     width: 100%;
 
@@ -641,7 +615,7 @@ body {
 }
 
 
-/* ================= SAVE BUTTON ================= */
+
 
 .submit {
     background: linear-gradient(
@@ -676,7 +650,7 @@ body {
 }
 
 
-/* ================= BUTTON AREA ================= */
+
 
 .form-buttons {
     display: flex;
@@ -691,7 +665,7 @@ body {
 }
 
 
-/* ================= CANCEL BUTTON ================= */
+
 
 .cancel {
     background: white;
@@ -726,7 +700,6 @@ body {
 }
 
 
-/* ================= SCROLLBAR ================= */
 
 .sidebar::-webkit-scrollbar {
     width: 5px;
@@ -743,7 +716,6 @@ body {
 }
 
 
-/* ================= TABLET ================= */
 
 @media (max-width: 1100px) {
 
@@ -781,7 +753,7 @@ body {
 }
 
 
-/* ================= SMALL TABLET ================= */
+
 
 @media (max-width: 800px) {
 
@@ -805,7 +777,6 @@ body {
 }
 
 
-/* ================= MOBILE ================= */
 
 @media (max-width: 700px) {
 
