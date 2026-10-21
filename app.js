@@ -10,6 +10,7 @@ const sortBy = document.getElementById("sortBy");
 const pagination = document.getElementById("pagination");
 
 
+// LOAD EVENTS FROM MYSQL
 async function loadEvents() {
 
     events = await getEvents();
@@ -20,9 +21,15 @@ async function loadEvents() {
 }
 
 
+// CREATE CATEGORY FILTER
 function createCategoryFilter() {
 
-    const categories = [...new Set(events.map(event => event.category))];
+    categoryFilter.innerHTML =
+        '<option value="all">All Categories</option>';
+
+    const categories = [
+        ...new Set(events.map(event => event.category))
+    ];
 
     categories.forEach(category => {
 
@@ -36,6 +43,7 @@ function createCategoryFilter() {
 }
 
 
+// DISPLAY EVENTS
 function displayEvents() {
 
     let filteredEvents = [...events];
@@ -60,6 +68,7 @@ function displayEvents() {
         );
     }
 
+    // SORT EVENTS
     if (sortBy.value === "name-asc") {
 
         filteredEvents.sort((a, b) =>
@@ -85,6 +94,7 @@ function displayEvents() {
         );
     }
 
+    // PAGINATION
     const totalPages = Math.ceil(
         filteredEvents.length / eventsPerPage
     );
@@ -94,7 +104,6 @@ function displayEvents() {
     }
 
     const start = (currentPage - 1) * eventsPerPage;
-
     const end = start + eventsPerPage;
 
     const pageEvents = filteredEvents.slice(start, end);
@@ -109,11 +118,8 @@ function displayEvents() {
 
         card.innerHTML = `
             <h3>${event.name}</h3>
-
             <p>Date: ${formatDate(event.date)}</p>
-
             <p>Venue: ${event.venue}</p>
-
             <p>Category: ${event.category}</p>
 
             <button onclick="registerEvent(${event.id})">
@@ -124,11 +130,11 @@ function displayEvents() {
         eventGrid.appendChild(card);
     });
 
-
     createPagination(totalPages);
 }
 
 
+// FORMAT DATE
 function formatDate(date) {
 
     const eventDate = new Date(date);
@@ -141,6 +147,7 @@ function formatDate(date) {
 }
 
 
+// CREATE PAGINATION
 function createPagination(totalPages) {
 
     pagination.innerHTML = "";
@@ -152,13 +159,11 @@ function createPagination(totalPages) {
     const previousButton = document.createElement("button");
 
     previousButton.textContent = "Previous";
-
     previousButton.disabled = currentPage === 1;
 
     previousButton.onclick = function () {
 
         currentPage--;
-
         displayEvents();
     };
 
@@ -177,7 +182,6 @@ function createPagination(totalPages) {
         pageButton.onclick = function () {
 
             currentPage = i;
-
             displayEvents();
         };
 
@@ -187,13 +191,11 @@ function createPagination(totalPages) {
     const nextButton = document.createElement("button");
 
     nextButton.textContent = "Next";
-
     nextButton.disabled = currentPage === totalPages;
 
     nextButton.onclick = function () {
 
         currentPage++;
-
         displayEvents();
     };
 
@@ -201,9 +203,10 @@ function createPagination(totalPages) {
 }
 
 
+// OPEN REGISTRATION MODAL
 function registerEvent(id) {
 
-    const event = events.find(event => event.id === id);
+    const event = events.find(event => Number(event.id) === Number(id));
 
     if (event) {
 
@@ -213,23 +216,70 @@ function registerEvent(id) {
     }
 }
 
+
+// CLOSE REGISTRATION MODAL
 document.getElementById("closeModal").onclick = function () {
 
     document.getElementById("registrationModal").style.display = "none";
 };
 
 
-document.getElementById("registrationForm").onsubmit = function (e) {
+// SAVE EVENT REGISTRATION IN MYSQL
+document.getElementById("registrationForm").onsubmit = async function (e) {
 
     e.preventDefault();
 
-    alert("Registration successful!");
+    const eventId = this.dataset.eventId;
 
-    document.getElementById("registrationModal").style.display = "none";
+    const formData = new FormData();
 
-    this.reset();
+    formData.append("event_id", eventId);
+
+    const submitButton = this.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true;
+
+    try {
+
+        const response = await fetch("registerEvent.php", {
+
+            method: "POST",
+
+            body: formData
+
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        if (result.success) {
+
+            document.getElementById("registrationModal").style.display = "none";
+
+            this.reset();
+
+        } else if (response.status === 401) {
+
+            window.location.href = "StudentLogin.html";
+
+        }
+
+    } catch (error) {
+
+        console.error("Registration Error:", error);
+
+        alert("Unable to register. Please try again.");
+
+    } finally {
+
+        submitButton.disabled = false;
+
+    }
 };
 
+
+// SEARCH EVENTS
 searchBox.addEventListener("input", function () {
 
     currentPage = 1;
@@ -237,6 +287,8 @@ searchBox.addEventListener("input", function () {
     displayEvents();
 });
 
+
+// FILTER EVENTS
 categoryFilter.addEventListener("change", function () {
 
     currentPage = 1;
@@ -244,6 +296,8 @@ categoryFilter.addEventListener("change", function () {
     displayEvents();
 });
 
+
+// SORT EVENTS
 sortBy.addEventListener("change", function () {
 
     currentPage = 1;
@@ -251,4 +305,6 @@ sortBy.addEventListener("change", function () {
     displayEvents();
 });
 
+
+// START APPLICATION
 loadEvents();

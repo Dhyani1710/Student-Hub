@@ -1,6 +1,8 @@
 async function getEvents() {
+
     try {
-        const response = await fetch("event.json");
+
+        const response = await fetch("getEvents.php");
 
         if (!response.ok) {
             throw new Error("Failed to load events");
@@ -11,7 +13,9 @@ async function getEvents() {
         return events;
 
     } catch (error) {
+
         console.error("Error:", error);
+
         return [];
     }
 }
