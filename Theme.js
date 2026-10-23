@@ -176,4 +176,203 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("studentHubTheme", "dark");
         }
     });
+
+    // ================= HAMBURGER MENU =================
+
+let hamburger = document.createElement("button");
+
+hamburger.id = "studentHubHamburger";
+hamburger.innerHTML = "☰";
+document.body.appendChild(hamburger);
+
+
+// Hamburger CSS
+let menuStyle = document.createElement("style");
+
+menuStyle.innerHTML = `
+
+    #studentHubHamburger {
+        display: none !important;
+        position: fixed !important;
+        top: 15px !important;
+        left: 15px !important;
+
+        width: 45px !important;
+        height: 40px !important;
+
+        background: #0466c8 !important;
+        color: white !important;
+
+        border: none !important;
+        border-radius: 6px !important;
+
+        font-size: 25px !important;
+        line-height: 40px !important;
+        text-align: center !important;
+
+        cursor: pointer !important;
+
+        z-index: 999999 !important;
+    }
+
+
+    @media screen and (max-width: 700px) {
+
+        #studentHubHamburger {
+            display: block !important;
+        }
+
+        .sidebar {
+            position: fixed !important;
+
+            top: 0 !important;
+            left: -260px !important;
+
+            width: 245px !important;
+            height: 100vh !important;
+
+            z-index: 999998 !important;
+
+            transition: left 0.3s ease !important;
+
+            overflow-y: auto !important;
+        }
+
+        .sidebar.show {
+            left: 0 !important;
+        }
+
+        .main {
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+
+    }
+
+`;
+
+document.head.appendChild(menuStyle);
+
+
+// Find sidebar
+let sidebar = document.querySelector(".sidebar");
+
+
+// If sidebar exists
+if (sidebar) {
+
+    hamburger.addEventListener("click", function () {
+
+        sidebar.classList.toggle("show");
+
+        if (sidebar.classList.contains("show")) {
+
+            hamburger.innerHTML = "✕";
+
+        } else {
+
+            hamburger.innerHTML = "☰";
+
+        }
+
+    });
+
+
+    // Close menu after clicking any sidebar link
+
+    let sidebarLinks = sidebar.querySelectorAll("a");
+
+    sidebarLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            sidebar.classList.remove("show");
+
+            hamburger.innerHTML = "☰";
+
+        });
+
+    });
+
+}
+});
+// ================= STUDENT SESSION DETAILS =================
+
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const studentPages = [
+        "Dashboard.php",
+        "Profile.html",
+        "Course.html",
+        "Attendence.html",
+        "Fees.html",
+        "HallTicket.html",
+        "Scholarship.html",
+        "Medical.html",
+        "Event.html",
+        "Rule.html"
+    ];
+
+    const currentPage = window.location.pathname.split("/").pop();
+
+    if (!studentPages.includes(currentPage)) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch("studentData.php", {
+            credentials: "same-origin",
+            cache: "no-store",
+            redirect: "error"
+        });
+
+        if (!response.ok) {
+            window.location.replace("StudentLogin.html");
+            return;
+        }
+
+        const student = await response.json();
+
+        // Update student name and username everywhere on the page
+
+const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT
+);
+
+const textNodes = [];
+
+while (walker.nextNode()) {
+    textNodes.push(walker.currentNode);
+}
+
+textNodes.forEach(function (node) {
+
+    const parent = node.parentElement;
+
+    if (!parent) return;
+
+    if (
+        parent.closest("script, style, textarea, input, option")
+    ) {
+        return;
+    }
+
+    let text = node.nodeValue;
+
+    text = text.replaceAll("Dhyani Parmar", student.name);
+    text = text.replaceAll("25DCS072", student.username);
+
+    node.nodeValue = text;
+
+});
+
+    } catch (error) {
+
+        console.error("Unable to load student details:", error);
+        window.location.replace("StudentLogin.html");
+
+    }
+
 });

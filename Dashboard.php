@@ -49,7 +49,9 @@ echo "</pre>";
 </h2>
             </div>
             
-
+            <?php if (($_SESSION["role"] ?? "") === "admin"): ?>
+                    <a href="StudentManagement.php">Student Management</a>
+                <?php endif; ?>
             <a href="Profile.html"><button>Student Profile</button></a><br>
             <a href="Course.html"><button>Student Course</button></a><br>
             <a href="Attendence.html"><button>Attendance Record</button></a><br>

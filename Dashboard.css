@@ -29,12 +29,13 @@ body {
     min-height: 100vh;
 }
 
+
 .container {
     display: flex;
     min-height: 100vh;
 }
 
-/* ================= SIDEBAR ================= */
+
 
 .sidebar {
     width: 245px;
@@ -52,7 +53,7 @@ body {
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.12);
 }
 
-/* Logo */
+
 
 .logo {
     text-align: center;
@@ -68,7 +69,7 @@ body {
     object-fit: contain;
 }
 
-/* Sidebar Buttons */
+
 
 .sidebar a {
     text-decoration: none;
@@ -95,11 +96,10 @@ body {
     box-shadow: 0 4px 10px rgba(4, 102, 200, 0.25);
 }
 
-/* Logout */
 
 .Logout {
-    margin-top: 30px;
-    padding-top: 20px;
+    margin-top: 5px;
+    padding-top: 5px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     text-align: center;
 }
@@ -120,7 +120,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ================= MAIN CONTENT ================= */
 
 .main {
     margin-left: 245px;
@@ -128,7 +127,6 @@ body {
     padding: 25px 35px 35px;
 }
 
-/* Header */
 
 .header {
     width: 100%;
@@ -143,7 +141,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* Blue Line */
+
 
 .line {
     width: 6px;
@@ -152,7 +150,7 @@ body {
     border-radius: 10px;
 }
 
-/* Profile */
+
 
 .Profile {
     display: flex;
@@ -175,7 +173,7 @@ body {
     margin-top: 2px;
 }
 
-/* Welcome Heading */
+
 
 .main > h2 {
     font-size: 24px;
@@ -184,13 +182,13 @@ body {
     font-weight: 600;
 }
 
-/* ================= DASHBOARD CARDS ================= */
+
 
 .card {
     width: 100%;
 }
 
-/* Small Cards */
+
 
 .small-card {
     display: inline-block;
@@ -235,7 +233,7 @@ body {
     border-left-color: #f4a261;
 }
 
-/* ================= RIGHT SIDE ================= */
+
 
 .right-side {
     width: 100%;
@@ -243,7 +241,6 @@ body {
     gap: 20px;
 }
 
-/* Medium Cards */
 
 .medium-card {
     width: 50%;
@@ -277,7 +274,7 @@ body {
     color: var(--smart-blue);
 }
 
-/* ================= SCROLLBAR ================= */
+
 
 .sidebar::-webkit-scrollbar {
     width: 5px;
@@ -291,8 +288,6 @@ body {
     background: var(--blue-slate);
     border-radius: 10px;
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 1100px) {
 
@@ -352,3 +347,4 @@ body {
         margin-bottom: 15px;
     }
 }
+

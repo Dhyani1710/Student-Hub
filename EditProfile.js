@@ -1,47 +1,142 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    const cancelBtn = document.querySelector(".cancel");
+
+    let form = document.querySelector("form");
+
+    let name = document.querySelector("input[type='text']");
+    let email = document.querySelector("input[type='email']");
+    let mobile = document.querySelector("input[type='tel']");
+    let fatherMobile = document.querySelectorAll("input[type='tel']")[1];
+    let motherMobile = document.querySelectorAll("input[type='tel']")[2];
+    let emergencyMobile = document.querySelectorAll("input[type='tel']")[3];
+    let dob = document.querySelector("input[type='date']");
+    let pin = document.querySelector("input[value='390001']");
+
+    name.addEventListener("change", function () {
+
+        let value = name.value.trim();
+
+        if (value === "") {
+            alert("Please enter your name");
+            name.focus();
+        }
+        else if (value.charAt(0) !== value.charAt(0).toUpperCase()) {
+            alert("First letter of Name must be CAPITAL");
+            name.focus();
+        }
+    });
+
+    email.addEventListener("change", function () {
+
+        let value = email.value.trim();
+
+        if (value === "") {
+            alert("Please enter your Email");
+            email.focus();
+        }
+        else if (!value.includes("@")) {
+            alert("Please enter a valid Email");
+            email.focus();
+        }
+    });
+
+    mobile.addEventListener("change", function () {
+
+        let value = mobile.value.trim();
+
+        if (value.length != 10) {
+            alert("Mobile Number must be 10 digits");
+            mobile.focus();
+        }
+    });
+
+    fatherMobile.addEventListener("change", function () {
+
+        let value = fatherMobile.value.trim();
+
+        if (value.length != 10) {
+            alert("Father's Mobile Number must be 10 digits");
+            fatherMobile.focus();
+        }
+    });
+
+    motherMobile.addEventListener("change", function () {
+
+        let value = motherMobile.value.trim();
+
+        if (value.length != 10) {
+            alert("Mother's Mobile Number must be 10 digits");
+            motherMobile.focus();
+        }
+    });
+
+    emergencyMobile.addEventListener("change", function () {
+
+        let value = emergencyMobile.value.trim();
+
+        if (value.length != 10) {
+            alert("Emergency Contact must be 10 digits");
+            emergencyMobile.focus();
+        }
+    });
+
+    pin.addEventListener("change", function () {
+
+        let value = pin.value.trim();
+
+        if (value.length != 6) {
+            alert("PIN Code must be 6 digits");
+            pin.focus();
+        }
+    });
 
     form.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        let name = document.querySelector("input[type='text'][value='Dhyani Parmar']").value.trim();
-        let email = document.querySelector("input[type='email']").value.trim();
-        let mobile = document.querySelector("input[type='tel'][value='9876543210']").value.trim();
-        let fatherMobile = document.querySelector("input[type='tel'][value='9876543211']").value.trim();
-        let motherMobile = document.querySelector("input[type='tel'][value='9876543212']").value.trim();
-        let guardianMobile = document.querySelector("input[placeholder='Enter guardian name']")?.nextElementSibling?.value || "";
-        let emergencyMobile = document.querySelector("input[type='tel'][value='9876543213']").value.trim();
-        let dob = document.querySelector("input[type='date']").value;
-        let pin = document.querySelector("input[value='390001']").value.trim();
-
-        let errors = [];
-
-        if (name === "") errors.push("Name is required.");
-        if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) errors.push("Invalid email.");
-
-        let mobilePattern = /^[0-9]{10}$/;
-        if (!mobilePattern.test(mobile)) errors.push("Student mobile must be 10 digits.");
-        if (!mobilePattern.test(fatherMobile)) errors.push("Father's mobile must be 10 digits.");
-        if (!mobilePattern.test(motherMobile)) errors.push("Mother's mobile must be 10 digits.");
-        if (!mobilePattern.test(emergencyMobile)) errors.push("Emergency contact must be 10 digits.");
-        if (guardianMobile && !mobilePattern.test(guardianMobile)) errors.push("Guardian mobile must be 10 digits.");
-
-        if (!/^[0-9]{6}$/.test(pin)) errors.push("PIN must be 6 digits.");
-
-        if (errors.length > 0) {
-            alert(errors.join("\n"));
-        } else {
-            alert("Profile updated successfully!");
-            localStorage.setItem("profile", JSON.stringify({
-                name, email, mobile, fatherMobile, motherMobile, guardianMobile, emergencyMobile, dob, pin
-            }));
+        if (name.value.trim() === "") {
+            alert("Please enter your Name");
+            name.focus();
+            return;
         }
+
+        if (email.value.trim() === "") {
+            alert("Please enter your Email");
+            email.focus();
+            return;
+        }
+
+        if (mobile.value.trim().length != 10) {
+            alert("Mobile Number must be 10 digits");
+            mobile.focus();
+            return;
+        }
+
+        if (fatherMobile.value.trim().length != 10) {
+            alert("Father's Mobile Number must be 10 digits");
+            fatherMobile.focus();
+            return;
+        }
+
+        if (motherMobile.value.trim().length != 10) {
+            alert("Mother's Mobile Number must be 10 digits");
+            motherMobile.focus();
+            return;
+        }
+
+        if (emergencyMobile.value.trim().length != 10) {
+            alert("Emergency Contact must be 10 digits");
+            emergencyMobile.focus();
+            return;
+        }
+
+        if (pin.value.trim().length != 6) {
+            alert("PIN Code must be 6 digits");
+            pin.focus();
+            return;
+        }
+
+        alert("Profile updated successfully!");
+
     });
 
-    cancelBtn.addEventListener("click", function () {
-        if (confirm("Cancel changes?")) {
-            window.location.href = "Dashboard.html";
-        }
-    });
 });

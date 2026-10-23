@@ -24,7 +24,6 @@ body {
     background: #eef4fb;
 }
 
-/* Container */
 
 .container {
     width: 100%;
@@ -33,7 +32,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Header */
 
 header {
     background: linear-gradient(to right, var(--prussian-blue), var(--smart-blue));
@@ -43,7 +41,6 @@ header {
     padding: 10px 30px;
 }
 
-/* Logo */
 
 .logo {
     color: #fff;
@@ -51,7 +48,6 @@ header {
     font-weight: bold;
 }
 
-/* Navigation */
 
 nav ul {
     display: flex;
@@ -84,8 +80,6 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Programmes Section */
-
 .programmes {
     padding: 40px;
 }
@@ -104,7 +98,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
-/* Program Box */
+
 
 .program-box {
     flex: 1;
@@ -141,7 +135,6 @@ nav ul li a:hover {
     border: 1px solid #ddd;
 }
 
-/* Footer */
 
 footer {
     background: var(--prussian-blue);
@@ -151,7 +144,6 @@ footer {
     margin-top: 20px;
 }
 
-/* Responsive */
 
 @media(max-width:900px) {
 
